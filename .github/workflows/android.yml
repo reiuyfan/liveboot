@@ -15,13 +15,14 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          
-      - name: Setup Java
-        uses: actions/setup-java@v2
-        with:
-          distribution: "adopt"
-          java-version: "11"
         
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+      
       - name: Make gradlew executable
         run: chmod +x ./gradlew
       
@@ -32,8 +33,8 @@ jobs:
         run: |
           ./gradlew assembleRelease
 
-      - name: find APK
-        run: sudo find / -name *.apk
+      # - name: find APK
+      # run: sudo find / -name *.apk
 
       - name: Sign APK
         id: sign_apk
