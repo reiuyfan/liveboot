@@ -10,6 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: "adopt"
+          java-version: "11"
+          
       - name: Get Tag
         id: var
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
