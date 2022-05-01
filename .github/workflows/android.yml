@@ -33,7 +33,7 @@ jobs:
           ./gradlew assembleRelease
 
       - name: find APK
-        run: find / -name *.apk
+        run: sudo find / -name *.apk
 
       - name: Sign APK
         id: sign_apk
