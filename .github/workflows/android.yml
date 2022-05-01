@@ -17,7 +17,7 @@ jobs:
       - name: Build APK
         id: build
         run: |
-        ./gradlew bundleRelease
+      ./gradlew assembleRelease
 
       - name: Sign APK
         id: sign_apk
