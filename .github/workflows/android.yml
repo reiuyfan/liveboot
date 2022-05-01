@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '13'
+          java-version: '11'
           check-latest: false
       
       - name: Make gradlew executable
