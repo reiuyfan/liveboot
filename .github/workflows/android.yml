@@ -10,19 +10,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Get Tag
+        id: var
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
           distribution: "adopt"
           java-version: "11"
           
-      - name: Get Tag
-        id: var
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-
       - name: Make gradlew executable
         run: chmod +x ./gradlew
         
+      - name: Create release directory
+        run: mkdir -p app/build/outputs/apk/release
+      
       - name: Build
         run: ./gradlew build
         
