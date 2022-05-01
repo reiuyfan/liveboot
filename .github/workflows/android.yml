@@ -20,8 +20,8 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'
-          check-latest: true
+          java-version: '13'
+          check-latest: false
       
       - name: Make gradlew executable
         run: chmod +x ./gradlew
