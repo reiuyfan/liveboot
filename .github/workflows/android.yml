@@ -23,15 +23,11 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
         
-      - name: Create release directory
-        run: mkdir -p app/build/outputs/apk/release
-      
-      - name: Build
-        run: ./gradlew build
-        
-      - name: Assemble Release Bundle
-        run: |
-          ./gradlew assembleRelease
+      - name: Build Release APK
+        uses: burrunan/gradle-cache-action@v1
+        with:
+          arguments: assembleRelease
+          gradle-version: wrapper
 
       - name: Sign APK
         id: sign_apk
